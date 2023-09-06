@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 
 
 def show_graphs(df):
+    st.header("DataFrame")
+    st.dataframe(df)
     st.subheader("Heatmap de corrélation")
     ax_heatmap = sns.heatmap(df.select_dtypes(include="number").corr(), annot=True)
     st.pyplot(ax_heatmap.get_figure())
@@ -27,6 +29,9 @@ def main():
     link = "https://raw.githubusercontent.com/murpi/wilddata/master/quests/cars.csv"
 
     df = pd.read_csv(link)
+    
+
+    
     show_filtered = False
 	
     filter = "Pas de filtre"
